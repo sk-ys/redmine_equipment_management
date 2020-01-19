@@ -1,0 +1,23 @@
+<div class="contextual">
+  <% if User.current.allowed_to?(:create_embooks, @project) %>
+    <%= toggle_link l(:button_add), 'embooks-form', {:focus => 'embook_equipment_id'} %>
+  <% end %>
+</div>
+
+<p><strong><%=l(:label_title_embooks)%></strong></p>
+
+<%= hidden_field_tag(
+  'em_equipment_app_name',
+  Setting.plugin_equipment_management[:em_equipment_app_name]
+) %>
+
+<%= render :partial => 'embooks/table', :locals => { hide_items: [:issue_id] } %>
+
+<%= form_tag(
+  { controller: 'embooks', action: 'create' },
+  { remote: true, id: 'embooks-form', style: 'display: none;', method: :post }
+  ) do %>
+<%= render :partial => 'issue_embooks/form', :locals => { issue_id: @issue.id }%>
+<% end %>
+
+<%= javascript_include_tag 'form.js', plugin: 'equipment_management' %>

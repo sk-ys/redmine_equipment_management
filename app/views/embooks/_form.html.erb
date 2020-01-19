@@ -1,0 +1,19 @@
+<%= error_messages_for 'embook' %>
+<div class="box">
+  <p><%= form.check_box :enabled, required: true %></p>
+  
+  <% if defined?(issue_id) && issue_id.present? %>
+    <%= form.hidden_field :issue_id, value: issue_id %>
+  <% else %>
+    <p><%= form.number_field :issue_id %></p>
+  <% end %>
+
+  <% if defined?(equipment_id) && equipment_id.present? %>
+    <%= form.hidden_field :equipment_id, value: equipment_id %>
+  <% else %>
+    <p><%= form.number_field :equipment_id %></p>
+  <% end %>
+
+  <p><%= form.datetime_field :start_datetime %></p>
+  <p><%= form.datetime_field :end_datetime %></p>
+</div>

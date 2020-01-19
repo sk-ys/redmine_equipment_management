@@ -1,0 +1,28 @@
+#embooks-form .em_date_box, #embooks-form .em_time_box {
+    display: table-cell
+}
+
+#embooks-form .em_date_box input {
+    width: 12em;
+    text-align: center;
+}
+
+#embooks-form .em_time_box input {
+    width: 5em;
+    text-align: center;
+}
+
+#embooks-form p.title_upper {
+    margin-bottom: 0
+}
+
+#embooks-form div.box > div {
+    display: table-cell;
+    padding: 0 1em;
+}
+
+#embooks-form div.em_submit {
+    vertical-align: bottom;
+    width: 100%;
+    text-align: right;
+}

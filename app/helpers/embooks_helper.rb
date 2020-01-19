@@ -1,0 +1,2 @@
+module EmbooksHelper
+end

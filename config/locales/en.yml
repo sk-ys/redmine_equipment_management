@@ -1,0 +1,13 @@
+# English strings go here for Rails i18n
+en:
+  label_em_equipment_project: 'equipment project: '
+  label_new_embook: 'New Booking'
+  label_edit_embook: 'Edit Booking'
+  label_title_embooks: 'Equipment Booking List'
+  message_no_embooks: 'No bookings have been added yet. Click New Booking to get started.'
+  label_enabled: 'enabled'
+  label_issue_id: 'issue id'
+  label_equipment_id: 'equipment id'
+  label_start_datetime: 'start datetime'
+  label_end_datetime: 'end datetime'
+  label_em_equipment_app_name: 'equipment app name'

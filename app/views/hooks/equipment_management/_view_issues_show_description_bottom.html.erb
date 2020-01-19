@@ -1,0 +1,6 @@
+<% if @project.module_enabled?(:equipment_management) %>
+<hr>
+<div id="embooks_list">
+  <%= render partial: 'issues/embooks' %>
+</div>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="box">
+  <p>
+    <label><%= l(:label_em_equipment_project) %></label>
+    <%= select_tag(
+      'settings[em_equipment_project]',
+      options_from_collection_for_select(
+        Project.all, :id, :name,
+        Setting.plugin_equipment_management[:em_equipment_project].to_i)
+    ) %>
+  </p>
+  <p>
+    <label><%= l(:label_em_equipment_app_name) %></label>
+    <%= text_field_tag "settings[em_equipment_app_name]", Setting.plugin_equipment_management["em_equipment_app_name"] %><br/>
+  </p>
+</div>

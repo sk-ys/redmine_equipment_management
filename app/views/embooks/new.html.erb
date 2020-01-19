@@ -1,0 +1,19 @@
+<% html_title l(:label_new_embook) %>
+
+<h2><%= l(:label_new_embook) %></h2>
+
+<%= form_tag(
+  { controller: 'embooks', action: 'create' },
+  { remote: true, id: 'embooks-form', style: 'display: none;', method: :post }
+  ) do %>
+<%= render :partial => 'issue_embooks/form' %>
+<% end %>
+
+<%= javascript_include_tag 'form.js', plugin: 'equipment_management' %>
+
+
+<%#= labelled_form_for :embook, @embook,
+  url: { action: 'create' }, html: { multipart: true, id: 'embooks-form' } do |f| %>
+  <%#= render partial: 'form', locals: { form: f } %>
+  <%#= submit_tag l(:button_create) %>
+<%# end %>

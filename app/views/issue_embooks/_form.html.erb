@@ -1,0 +1,60 @@
+<%= javascript_include_tag("https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.20/build/jquery.datetimepicker.full.min.js") %>
+<%= stylesheet_link_tag "application", "https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.20/jquery.datetimepicker.css" %>
+<%= stylesheet_link_tag "form", media: "all", plugin: 'equipment_management' %>
+
+<%= error_messages_for "embook" %>
+<div class="box">
+  <h3>New booking</h3>
+  <div>
+    <div>
+      <p class="title_upper">enabled</p>
+      <%= check_box_tag :em_enabled, 1, {checked: "checked"} %>
+    </div>
+    <div>
+      <% if defined?(issue_id) && issue_id.present? %>
+        <%= hidden_field_tag :em_issue_id, value: issue_id %>
+      <% else %>
+        <p class="title_upper">issue_id</p>
+        <%= number_field_tag :em_issue_id %>
+      <% end %>
+    </div>
+    <div>
+      <% if defined?(equipment_id) && equipment_id.present? %>
+        <%= hidden_field_tag :em_equipment_id, value: equipment_id %>
+      <% else %>
+        <p class="title_upper">equipment_id</p>
+        <%= number_field_tag :em_equipment_id %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="em_date_box">
+        <p class="title_upper">start date</p>
+        <%= date_field_tag :em_start_date %>
+      </div>
+      <div class="em_time_box">
+        <p class="title_upper">start time</p>
+        <%= text_field_tag :em_start_time %>
+      </div>
+    </div>
+    <div>
+      <div class="em_date_box">
+        <p class="title_upper">due date</p>
+        <%= date_field_tag :em_due_date %>
+      </div>
+      <div class="em_time_box">
+        <p class="title_upper">due time</p>
+        <%= text_field_tag :em_due_time %>
+      </div>
+    </div>
+  </div>
+  <div>
+    <%= hidden_field_tag 'back_url', issue_path(@issue.id), id: '' %>
+  </div>
+
+  <div class="em_submit">
+    <%= submit_tag l(:button_add) %>
+    <%= link_to_function l(:button_cancel), '$("#embooks-form").hide();'%>
+  </div>
+</div>

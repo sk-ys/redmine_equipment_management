@@ -1,0 +1,17 @@
+<div class="contextual">
+	<%= # link_to_if_authorized(l(:label_new_embook),
+	  link_to(l(:label_new_embook),
+		{action: 'new'},
+		 class: 'icon icon-add') %>
+</div>
+
+<h2><%= l(:label_title_embooks) %></h2>
+
+<%= hidden_field_tag(
+  'em_equipment_app_name',
+  Setting.plugin_equipment_management[:em_equipment_app_name]
+) %>
+
+
+<p class="nodata"><%= l(:message_no_embooks) %></p>
+<%= render :partial => 'embooks/table' %>
