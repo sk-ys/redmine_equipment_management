@@ -40,11 +40,11 @@ $(function () {
             if (!hide_issue_id) {
                 $(embook_table_tbody_tr).append(
                     '<td><a href="' + base_url  + '/issues/' + get_cf(item.custom_fields, cf_id_issue_id).value + '">' +
-                    get_cf(item.custom_fields, cf_id_issue_id).name + '</a></td>');
+                    get_cf(item.custom_fields, cf_id_issue_id).value + '</a></td>');
             }
             $(embook_table_tbody_tr).append('<td>' + item.status.name + '</td>');
             $(embook_table_tbody_tr).append('<td>' + item.priority.name + '</td>');
-            $(embook_table_tbody_tr).append('<td><a href="' + base_url  + '/projects/' + item.project.id + '/issues">' + item.project.value + '</a></td>');
+            $(embook_table_tbody_tr).append('<td><a href="' + base_url  + '/projects/' + item.project.id + '/issues">' + item.project.name + '</a></td>');
             $(embook_table_tbody_tr).append('<td>' + item.start_date + ' ' + get_cf(item.custom_fields, cf_id_starttime).value + '</td>');
             $(embook_table_tbody_tr).append('<td>' + item.due_date + ' ' + get_cf(item.custom_fields, cf_id_duetime).value + '</td>');
         });
