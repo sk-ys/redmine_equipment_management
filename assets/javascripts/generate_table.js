@@ -29,24 +29,48 @@ $(function () {
     }
 
     let generate_table = function (data) {
-        let hide_issue_id = $('table.em_list th').length == 7;  // todo:
+        let tag_lists = $('table.em_list th').map((i,x) => x.className).get();
         let embook_table_tbody = embook_table.children('tbody');
         embook_table_tbody.empty();  // clear entries before adding
         data.forEach(function (item, index) {
             $(embook_table_tbody).append('<tr class=' + odd_or_even(index) + '></tr>');
             let embook_table_tbody_tr = $(embook_table_tbody).children('tr:last');
-            $(embook_table_tbody_tr).append('<td><a href="' + base_url  + '/issues/' + item.id + '">' + item.id + '</a></td>');
-            $(embook_table_tbody_tr).append('<td>' + (get_cf(item.custom_fields, cf_id_enabled).value == 1) + '</td>');
-            if (!hide_issue_id) {
-                $(embook_table_tbody_tr).append(
-                    '<td><a href="' + base_url  + '/issues/' + get_cf(item.custom_fields, cf_id_issue_id).value + '">' +
-                    get_cf(item.custom_fields, cf_id_issue_id).value + '</a></td>');
-            }
-            $(embook_table_tbody_tr).append('<td>' + item.status.name + '</td>');
-            $(embook_table_tbody_tr).append('<td>' + item.priority.name + '</td>');
-            $(embook_table_tbody_tr).append('<td><a href="' + base_url  + '/projects/' + item.project.id + '/issues">' + item.project.name + '</a></td>');
-            $(embook_table_tbody_tr).append('<td>' + item.start_date + ' ' + get_cf(item.custom_fields, cf_id_starttime).value + '</td>');
-            $(embook_table_tbody_tr).append('<td>' + item.due_date + ' ' + get_cf(item.custom_fields, cf_id_duetime).value + '</td>');
+            let td_inner = undefined;
+            tag_lists.forEach(function (tag) {
+                switch (tag) {
+                    case '#':
+                        td_inner = '<a href="' + base_url  + '/issues/' + item.id + '">' + item.id + '</a>';
+                        break;
+                    case 'enabled':
+                        td_inner = get_cf(item.custom_fields, cf_id_enabled).value == 1;
+                        break;
+                    case 'issue_id':
+                        td_inner = '<a href="' +
+                            base_url  + '/issues/' + get_cf(item.custom_fields, cf_id_issue_id).value + '">' +
+                            get_cf(item.custom_fields, cf_id_issue_id).value + '</a>';
+                        break;
+                    case 'status':
+                        td_inner = item.status.name;
+                        break;
+                    case 'priority':
+                        td_inner = item.priority.name;
+                        break;
+                    case 'equipment_id':
+                        td_inner = '<a href="' +
+                            base_url  + '/projects/' + item.project.id + '/issues">' +
+                            item.project.name + '</a>';
+                        break;
+                    case 'start_datetime':
+                        td_inner = item.start_date + ' ' + get_cf(item.custom_fields, cf_id_starttime).value;
+                        break;
+                    case 'due_datetime':
+                        td_inner = item.due_date + ' ' + get_cf(item.custom_fields, cf_id_duetime).value;
+                        break;
+                    default:
+                        break;
+                }
+                $(embook_table_tbody_tr).append('<td>' + td_inner + '</td>');
+            });
         });
     }
 
