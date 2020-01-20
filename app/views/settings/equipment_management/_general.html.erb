@@ -1,15 +1,30 @@
 <div class="box">
-  <p>
-    <label><%= l(:label_em_equipment_project) %></label>
-    <%= select_tag(
-      'settings[em_equipment_project]',
-      options_from_collection_for_select(
-        Project.all, :id, :name,
-        Setting.plugin_equipment_management[:em_equipment_project].to_i)
-    ) %>
-  </p>
+  <h4><%= l(:label_em_equipment_app_settings_header_title) %></h4>
   <p>
     <label><%= l(:label_em_equipment_app_name) %></label>
     <%= text_field_tag "settings[em_equipment_app_name]", Setting.plugin_equipment_management["em_equipment_app_name"] %><br/>
+  </p>
+  <p>
+    <label><%= l(:label_em_tracker_id) %></label>
+    <%= number_field_tag "settings[em_tracker_id]",
+        Setting.plugin_equipment_management["em_tracker_id"], min: 1, step: 1 %><br/>
+  </p>
+
+  <h4><%= l(:label_em_equipment_app_cf_id_settings_header_title) %></h4>
+  <p>
+    <label><%= l(:label_em_cf_id_issue_id) %></label>
+    <%= number_field_tag "settings[em_cf_id_issue_id]", Setting.plugin_equipment_management["em_cf_id_issue_id"], min: 1, step: 1 %><br/>
+  </p>
+  <p>
+    <label><%= l(:label_em_cf_id_enabled) %></label>
+    <%= number_field_tag "settings[em_cf_id_enabled]", Setting.plugin_equipment_management["em_cf_id_enabled"], min: 1, step: 1 %><br/>
+  </p>
+  <p>
+    <label><%= l(:label_em_cf_id_starttime) %></label>
+    <%= number_field_tag "settings[em_cf_id_starttime]", Setting.plugin_equipment_management["em_cf_id_starttime"], min: 1, step: 1 %><br/>
+  </p>
+  <p>
+    <label><%= l(:label_em_cf_id_duetime) %></label>
+    <%= number_field_tag "settings[em_cf_id_duetime]", Setting.plugin_equipment_management["em_cf_id_duetime"], min: 1, step: 1 %><br/>
   </p>
 </div>
