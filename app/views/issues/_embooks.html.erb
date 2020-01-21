@@ -6,11 +6,6 @@
 
 <p><strong><%=l(:label_title_embooks)%></strong></p>
 
-<%= hidden_field_tag(
-  'em_equipment_app_name',
-  Setting.plugin_equipment_management[:em_equipment_app_name]
-) %>
-
 <%= render :partial => 'embooks/table', :locals => { hide_items: [:issue_id] } %>
 
 <%= form_tag(

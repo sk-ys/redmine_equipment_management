@@ -1,16 +1,16 @@
 $(function () {
     let embook_table = $('table.em_list');
-    let base_url = '/' + $('#em_equipment_app_name').val();
+    let base_url = '/' + Embooks.settings.equipment_app_name;
     let issue_id = undefined;
     let res = location.href.match(/\/issues\/[0-9]*/);
     if (res) {
         issue_id = parseInt(res[0].split('/')[2], 10)
     }
-    let tracker_id = 4;
-    let cf_id_issue_id = 1;
-    let cf_id_enabled = 2;
-    let cf_id_starttime = 5;
-    let cf_id_duetime = 6;
+    let tracker_id = Embooks.settings.tracker_id;  // 予約トラッカーID
+    let cf_id_issue_id = Embooks.settings.cf_id.issue_id;
+    let cf_id_enabled = Embooks.settings.cf_id.enabled;
+    let cf_id_starttime = Embooks.settings.cf_id.starttime;
+    let cf_id_duetime = Embooks.settings.cf_id.duetime;
 
     let target_url = base_url + '/issues.json?sort=issue_id&tracker_id=' + tracker_id;
     if (issue_id != undefined) {

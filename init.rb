@@ -20,8 +20,12 @@ Redmine::Plugin.register :equipment_management do
   requires_redmine version_or_higher: '4.0.0'
 
   settings default: {
-    em_equipment_project: nil,
-    em_equipment_app_name: 'equipment'
+    em_equipment_app_name: 'equipment',
+    em_tracker_id: '',
+    em_cf_id_issue_id: '',
+    em_cf_id_enabled: '',
+    em_cf_id_starttime: '',
+    em_cf_id_duetime: '',
   }, partial: 'settings/equipment_management/general'
 
   menu :top_menu,

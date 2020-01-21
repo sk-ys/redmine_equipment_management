@@ -3,16 +3,16 @@ add issue test
 */
 $(function() {
 
-    let app_path = '/equipment';
+    let app_path = '/' + Embooks.settings.equipment_app_name;
     let target_field_id = '#em_equipment_id'; // フィールドのID
     let apikey = '';
     let issue_id = parseInt(location.href.match(/\/issues\/[0-9]*/)[0].split('/')[2], 10)
 
-    let tracker_id = 4;  // 予約トラッカーID
-    let cfid_issue_id = 1;
-    let cfid_enabled = 2;
-    let cfid_start_time = 5;
-    let cfid_due_time = 6;
+    let tracker_id = Embooks.settings.tracker_id;  // 予約トラッカーID
+    let cf_id_issue_id = Embooks.settings.cf_id.issue_id;
+    let cf_id_enabled = Embooks.settings.cf_id.enabled;
+    let cf_id_starttime = Embooks.settings.cf_id.starttime;
+    let cf_id_duetime = Embooks.settings.cf_id.duetime;
 
     $('#embooks-form input[type=submit]').on('click', function() {
 
@@ -38,19 +38,19 @@ $(function() {
                 'subject': subject,
                 'custom_fields': [
                     {
-                        'id': cfid_enabled,
+                        'id': cf_id_enabled,
                         'value': enabled_val
                     },
                     {
-                        'id': cfid_issue_id,
+                        'id': cf_id_issue_id,
                         'value': issue_id
                     },
                     {
-                        'id': cfid_start_time,
+                        'id': cf_id_starttime,
                         'value': start_time
                     },
                     {
-                        'id': cfid_due_time,
+                        'id': cf_id_duetime,
                         'value': due_time
                     }
                 ]

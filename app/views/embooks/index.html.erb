@@ -7,11 +7,5 @@
 
 <h2><%= l(:label_title_embooks) %></h2>
 
-<%= hidden_field_tag(
-  'em_equipment_app_name',
-  Setting.plugin_equipment_management[:em_equipment_app_name]
-) %>
-
-
 <p class="nodata"><%= l(:message_no_embooks) %></p>
 <%= render :partial => 'embooks/table' %>
