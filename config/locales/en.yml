@@ -11,7 +11,7 @@ en:
   label_start_datetime: 'start datetime'
   label_end_datetime: 'end datetime'
   label_em_equipment_app_name: 'equipment app name'
-  label_em_equipment_app_settings_header_title: 'Equipment apps id settings'
+  label_em_equipment_app_settings_header_title: 'Equipment apps settings'
   label_em_equipment_app_cf_id_settings_header_title: 'Equipment apps custom fields id settings'
   label_em_tracker_id: 'tracker id'
   label_em_cf_id_issue_id: 'issue id'
