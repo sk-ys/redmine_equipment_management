@@ -4,7 +4,7 @@ $(function () {
     let issue_id = undefined;
     let res = location.href.match(/\/issues\/[0-9]*/);
     if (res) {
-        issue_id = parseInt(res[0].split('/')[2], 10)
+        issue_id = parseInt(res[0].split('/')[2], 10);
     }
     let tracker_id = Embooks.settings.tracker_id;  // 予約トラッカーID
     let cf_id_issue_id = Embooks.settings.cf_id.issue_id;
@@ -29,7 +29,7 @@ $(function () {
     }
 
     let generate_table = function (data) {
-        let tag_lists = $('table.em_list th').map((i,x) => x.className).get();
+        let tag_lists = $('table.em_list th').map(function(i,x){return x.className}).get();
         let embook_table_tbody = embook_table.children('tbody');
         embook_table_tbody.empty();  // clear entries before adding
         data.forEach(function (item, index) {
