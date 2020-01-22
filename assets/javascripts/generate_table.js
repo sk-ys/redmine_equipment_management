@@ -46,7 +46,7 @@ $(function () {
                         break;
                     case 'issue_id':
                         td_inner = '<a href="' +
-                            base_url  + '/issues/' + get_cf(item.custom_fields, cf_id_issue_id).value + '">' +
+                            location.protocol + '//' + Embooks.settings.hostname  + '/issues/' + get_cf(item.custom_fields, cf_id_issue_id).value + '">' +
                             get_cf(item.custom_fields, cf_id_issue_id).value + '</a>';
                         break;
                     case 'status':

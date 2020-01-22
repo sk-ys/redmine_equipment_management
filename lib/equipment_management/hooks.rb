@@ -9,6 +9,7 @@ module EquipmentManagement
 
     def create_embooks_settings_array()
       settings = {
+        hostname: Setting.host_name.to_s,
         equipment_app_name: Setting.plugin_equipment_management["em_equipment_app_name"],
         tracker_id: Setting.plugin_equipment_management["em_tracker_id"].to_i,
         cf_id: {
