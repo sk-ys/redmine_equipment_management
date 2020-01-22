@@ -1,14 +1,11 @@
-/*
-add issue test
-*/
 $(function() {
 
     let app_path = '/' + Embooks.settings.equipment_app_name;
-    let target_field_id = '#em_equipment_id'; // フィールドのID
+    let target_field_id = '#em_equipment_id';
     let apikey = '';
     let issue_id = parseInt(location.href.match(/\/issues\/[0-9]*/)[0].split('/')[2], 10)
 
-    let tracker_id = Embooks.settings.tracker_id;  // 予約トラッカーID
+    let tracker_id = Embooks.settings.tracker_id;
     let cf_id_issue_id = Embooks.settings.cf_id.issue_id;
     let cf_id_enabled = Embooks.settings.cf_id.enabled;
     let cf_id_starttime = Embooks.settings.cf_id.starttime;
@@ -16,7 +13,7 @@ $(function() {
 
     $('#embooks-form input[type=submit]').on('click', function() {
 
-        let subject = $('title').text();  // 予約チケット名 = 登録元チケットのタイトル
+        let subject = $('title').text();  // bookin issue subject = source issue title of html
 
         let project_id = parseInt($('#em_equipment_id').val());
 
@@ -61,7 +58,6 @@ $(function() {
             return;
         }
 
-        // チケット作成処理(非同期)を実行し、最後にテーブル再描画
         let defer = $.Deferred();
         let promise = defer.promise();
 
@@ -70,9 +66,8 @@ $(function() {
 
         promise
         .done(function() {
-            // 成功したらフォームをリセット
-            $('#embooks-form')[0].reset(); // リセットフォーム
-            $('#embooks-form').toggle();  // フォームを隠す
+            $('#embooks-form')[0].reset();
+            $('#embooks-form').toggle();
         })
         .fail(function() {
             alert('失敗しました');
@@ -98,7 +93,6 @@ $(function() {
                 headers: {
                     'X-Redmine-API-Key': apikey
                 },
-                // 作成時はレスポンスのコンテンツが無く、jsonだとエラーとなるのでtextにしておく
                 dataType: 'text',
                 contentType: 'application/json',
                 data: JSON.stringify(issue)

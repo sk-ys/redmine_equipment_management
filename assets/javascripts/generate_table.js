@@ -6,7 +6,7 @@ $(function () {
     if (res) {
         issue_id = parseInt(res[0].split('/')[2], 10);
     }
-    let tracker_id = Embooks.settings.tracker_id;  // 予約トラッカーID
+    let tracker_id = Embooks.settings.tracker_id;
     let cf_id_issue_id = Embooks.settings.cf_id.issue_id;
     let cf_id_enabled = Embooks.settings.cf_id.enabled;
     let cf_id_starttime = Embooks.settings.cf_id.starttime;
@@ -46,7 +46,7 @@ $(function () {
                         break;
                     case 'issue_id':
                         td_inner = '<a href="' +
-                            location.protocol + '//' + Embooks.settings.hostname  + '/issues/' + get_cf(item.custom_fields, cf_id_issue_id).value + '">' +
+                            location.protocol + '//' + Embooks.settings.hostname + '/issues/' + get_cf(item.custom_fields, cf_id_issue_id).value + '">' +
                             get_cf(item.custom_fields, cf_id_issue_id).value + '</a>';
                         break;
                     case 'status':
