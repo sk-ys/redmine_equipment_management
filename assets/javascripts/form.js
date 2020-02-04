@@ -54,7 +54,7 @@ $(function() {
             }
         }
 
-        if (!confirm('Add issue?')) {
+        if (!confirm('登録しますか？')) {
             return;
         }
 

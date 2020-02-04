@@ -4,17 +4,17 @@
 
 <%= error_messages_for "embook" %>
 <div class="box">
-  <h3>New booking</h3>
+  <h3><%= l(:label_new_embook) %></h3>
   <div>
     <div>
-      <p class="title_upper">enabled</p>
+      <p class="title_upper"><%= l(:label_enabled) %></p>
       <%= check_box_tag :em_enabled, 1, {checked: "checked"} %>
     </div>
     <div>
       <% if defined?(issue_id) && issue_id.present? %>
         <%= hidden_field_tag :em_issue_id, value: issue_id %>
       <% else %>
-        <p class="title_upper">issue_id</p>
+        <p class="title_upper"><%= l(:label_issue_id) %></p>
         <%= number_field_tag :em_issue_id %>
       <% end %>
     </div>
@@ -22,7 +22,7 @@
       <% if defined?(equipment_id) && equipment_id.present? %>
         <%= hidden_field_tag :em_equipment_id, value: equipment_id %>
       <% else %>
-        <p class="title_upper">equipment_id</p>
+        <p class="title_upper"><%= l(:label_equipment_id) %></p>
         <%= number_field_tag :em_equipment_id %>
       <% end %>
     </div>
@@ -30,21 +30,21 @@
   <div>
     <div>
       <div class="em_date_box">
-        <p class="title_upper">start date</p>
+        <p class="title_upper"><%= l(:label_start_date) %></p>
         <%= date_field_tag :em_start_date %>
       </div>
       <div class="em_time_box">
-        <p class="title_upper">start time</p>
+        <p class="title_upper"><%= l(:label_start_time) %></p>
         <%= text_field_tag :em_start_time %>
       </div>
     </div>
     <div>
       <div class="em_date_box">
-        <p class="title_upper">due date</p>
+        <p class="title_upper"><%= l(:label_due_date) %></p>
         <%= date_field_tag :em_due_date %>
       </div>
       <div class="em_time_box">
-        <p class="title_upper">due time</p>
+        <p class="title_upper"><%= l(:label_due_time) %></p>
         <%= text_field_tag :em_due_time %>
       </div>
     </div>

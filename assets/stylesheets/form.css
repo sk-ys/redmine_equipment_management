@@ -4,11 +4,13 @@
 
 #embooks-form .em_date_box input {
     width: 12em;
+    height: 2em;
     text-align: center;
 }
 
 #embooks-form .em_time_box input {
-    width: 5em;
+    width: 7em;
+    height: 2em;
     text-align: center;
 }
 

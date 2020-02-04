@@ -1,0 +1,34 @@
+# Japanese strings go here for Rails i18n
+ja:
+  label_em_equipment_project: '設備プロジェクト: '
+  label_new_embook: '新規予約'
+  label_edit_embook: '予約情報の編集'
+  label_title_embooks: '設備予約リスト'
+  message_no_embooks: 'まだ何も登録されていません。新規予約ボタンから登録してください。'
+  label_enabled: '有効'
+  label_issue_id: 'チケットID'
+  label_equipment_id: '設備ID'
+  label_equipment: '設備'
+  label_start_datetime: '使用開始日時'
+  label_due_datetime: '使用終了日時'
+  label_start_date: '使用開始日'
+  label_due_date: '使用終了日'
+  label_start_time: '使用開始時刻'
+  label_due_time: '使用終了時刻'
+  label_em_equipment_app_name: '設備App名'
+  label_em_equipment_app_settings_header_title: '設備App設定'
+  label_em_equipment_app_cf_id_settings_header_title: '設備Appカスタムフィールド設定'
+  label_em_tracker_id: 'トラッカーID'
+  label_em_cf_id_issue_id: 'チケットID'
+  label_em_cf_id_enabled: '有効'
+  label_em_cf_id_starttime: '使用開始時刻'
+  label_em_cf_id_duetime: '使用終了時刻'
+
+  activerecord:
+    attributes:
+      embook:
+        enabled: "有効"
+        issue_id: "チケットID"
+        equipment_id: "設備チケットID"
+        start_datetime: "使用開始日時"
+        end_datetime: "使用終了日時"
