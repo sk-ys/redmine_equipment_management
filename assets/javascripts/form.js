@@ -3,7 +3,11 @@ $(function() {
     let app_path = '/' + Embooks.settings.equipment_app_name;
     let target_field_id = '#em_equipment_id';
     let apikey = '';
-    let issue_id = parseInt(location.href.match(/\/issues\/[0-9]*/)[0].split('/')[2], 10)
+    let issue_id = undefined;
+    let result_match = location.href.match(/\/issues\/[0-9]*/);
+    if (result_match!==null && result_match!==undefined) {
+        issue_id = parseInt(result_match[0].split('/')[2], 10);
+    }
 
     let tracker_id = Embooks.settings.tracker_id;
     let cf_id_issue_id = Embooks.settings.cf_id.issue_id;
@@ -15,6 +19,9 @@ $(function() {
 
         let subject = $('title').text();  // bookin issue subject = source issue title of html
 
+        if (issue_id === undefined) {
+            issue_id = parseInt($('#em_issue_id').val());
+        }
         let project_id = parseInt($('#em_equipment_id').val());
 
         let enabled_val = $('#em_enabled').prop("checked") == 1 ? 1 : 0;
